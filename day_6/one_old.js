@@ -21,20 +21,24 @@ async function processLineByLine() {
 
   let dias = 18;
   let qntd = 5;
+  let criacoes = [];
 
   for(const peixe of peixes){
     let geracoes = Math.floor((dias - 1 - peixe)/7) +1;
 
-    console.log(`Peixe: ${peixe}, Criou: ${geracoes}`);
+    // console.log(`Peixe: ${peixe}, Criou: ${geracoes}`);
 
     for(let geracao = 0; geracao < geracoes; geracao++){
 
       let criado = (peixe + 1 + (geracao * 7));
-      console.log(`Peixe criado no dia: ${criado}`);
+      // console.log(`Peixe criado no dia: ${criado}`);
+      criacoes.push(criado);
     }
 
-    console.log("");
+    // console.log("");
   }
+
+  console.log(criacoes);
 
 }
 

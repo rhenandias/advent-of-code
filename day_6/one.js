@@ -19,6 +19,9 @@ async function processLineByLine() {
     }
   }
 
+  // Força estado incial
+  peixes = [3];
+
   let dias = 18;
   let qntd = 5;
 

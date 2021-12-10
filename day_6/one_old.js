@@ -19,27 +19,35 @@ async function processLineByLine() {
     }
   }
 
-  let dias = 18;
-  let qntd = 5;
-  let criacoes = [];
+  peixes = [3];
 
-  for(const peixe of peixes){
-    let geracoes = Math.floor((dias - 1 - peixe)/7) +1;
+  let contagem = 0;
 
-    // console.log(`Peixe: ${peixe}, Criou: ${geracoes}`);
+  for (let dia = 0; dia <= 256; dia++) {
 
-    for(let geracao = 0; geracao < geracoes; geracao++){
+    contagem = peixes.length;
 
-      let criado = (peixe + 1 + (geracao * 7));
-      // console.log(`Peixe criado no dia: ${criado}`);
-      criacoes.push(criado);
+    console.log(`Dia: ${dia} - Contagem: ${contagem}`);
+
+    let adicionar = 0;
+
+    for (let i = 0; i < peixes.length; i++) {
+      if (peixes[i] == 0) {
+        adicionar++;
+        peixes[i] = 6;
+      } else {
+        peixes[i]--;
+      }
     }
 
-    // console.log("");
+    if (adicionar > 0) {
+      for (let i = 0; i < adicionar; i++) {
+        peixes.push(8);
+      }
+    }
   }
 
-  console.log(criacoes);
-
+  console.log("Quantidade de peixes:", contagem);
 }
 
 processLineByLine();

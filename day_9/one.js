@@ -2,7 +2,7 @@ const fs = require("fs");
 const readline = require("readline");
 
 async function processLineByLine() {
-  const fileStream = fs.createReadStream("test.txt");
+  const fileStream = fs.createReadStream("input.txt");
 
   const rl = readline.createInterface({
     input: fileStream,
@@ -93,7 +93,7 @@ async function processLineByLine() {
         if (
           mapa[y - 1][0] > atual &&
           mapa[y + 1][0] > atual &&
-          mapa[y + 1][x + 1] > atual
+          mapa[y][1] > atual
         )
           risk += 1 + atual;
       }

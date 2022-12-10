@@ -8,6 +8,51 @@ head = (0, 0)
 visitados = [(0, 0)]
 
 
+def exibir_rastro(visitados):
+    maior_x = 0
+    maior_y = 0
+
+    menor_x = 0
+    menor_y = 0
+
+    for pos in visitados:
+        if pos[0] > maior_x:
+            maior_x = pos[0]
+
+        if pos[1] > maior_y:
+            maior_y = pos[1]
+
+        if pos[0] < menor_x:
+            menor_x = pos[0]
+
+        if pos[1] < menor_y:
+            menor_y = 0
+
+    print("Maiores:", (menor_x, menor_y), (maior_x, maior_y))
+
+    mapa = []
+
+    for y in range(maior_y + 1):
+        mapa.append([])
+
+        for x in range(maior_x + 1):
+            mapa[y].append(".")
+
+    for pos in visitados:
+        if pos[0] == 0 and pos[1] == 0:
+            mapa[pos[1]][pos[0]] = "s"
+        else:
+            mapa[pos[1]][pos[0]] = "#"
+
+    for y in range(len(mapa) - 1, -1, -1):
+        linha = ""
+
+        for caracter in mapa[y]:
+            linha = linha + caracter
+
+        print(linha)
+
+
 def euclidian(x1, y1, x2, y2): return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2))
 
 
@@ -59,7 +104,7 @@ def move_tail(head, tail, visitados):
     return head, tail, visitados
 
 
-with open("input.txt") as file:
+with open("teste.txt") as file:
     for linha in file.readlines():
         linha = linha.replace("\n", "")
 
@@ -82,3 +127,7 @@ with open("input.txt") as file:
             head, tail, visitados = move_tail(head, tail, visitados)
 
 print("Quantidade visitada pela cauda:", len(list(set(visitados))))
+
+print(visitados)
+
+exibir_rastro(visitados)

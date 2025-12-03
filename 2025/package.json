@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Advent of Code 2025 solutions",
+  "scripts": {
+    "test": "node test-suite.ts"
+  },
   "devDependencies": {
     "@types/node": "^24.10.1"
   }

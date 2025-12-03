@@ -1,7 +1,18 @@
 import fs from "fs";
 import readline from "readline";
 
-const fileStream = fs.createReadStream("./input.txt");
+const args = process.argv.slice(2);
+let inputFile = "./input.txt";
+
+if (args.includes("--test")) {
+  inputFile = "./test.txt";
+} else if (args.includes("--input")) {
+  inputFile = "./input.txt";
+} else if (args.length > 0 && args[0].endsWith(".txt")) {
+  inputFile = args[0];
+}
+
+const fileStream = fs.createReadStream(inputFile);
 
 const rl = readline.createInterface({
   input: fileStream,

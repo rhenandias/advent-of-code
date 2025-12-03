@@ -52,8 +52,11 @@ python 2.py
 cd 2025
 npm install
 npm test  # Executa a suite de testes
+```
 
 # Ou execute arquivos individuais:
+
+```bash
 cd day01
 node 01.ts --test   # Executa com entrada de teste
 node 01.ts --input  # Executa com entrada real

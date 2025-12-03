@@ -1,0 +1,9 @@
+{
+  "name": "advent-of-code-2025",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Advent of Code 2025 solutions",
+  "devDependencies": {
+    "@types/node": "^24.10.1"
+  }
+}
